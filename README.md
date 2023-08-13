@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+### TL;DR
+The `Game` class is a React component that represents a tic-tac-toe game. It renders a `Board` component and handles the game logic, such as keeping track of the game history, determining the winner, and allowing players to make moves.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Example Usage
+```javascript
+// Render the Game component
+ReactDOM.render(<Game />, document.getElementById("root"));
+```
 
-## Available Scripts
+### Full Explanation
+The `Game` class is a React component that represents a tic-tac-toe game. It has a constructor that initializes the state with an array of 9 squares, a step number, and a boolean indicating whether it is X's turn or not.
 
-In the project directory, you can run:
+The `handleClick` method is called when a square is clicked. It checks if there is a winner or if the square is already filled, and returns early if either condition is true. Otherwise, it updates the square with the current player's symbol (X or O) and updates the state with the new history, step number, and player turn.
 
-### `npm start`
+The `jumpTo` method is called when a move button is clicked. It updates the state with the selected step number and determines the player turn based on whether the step number is even or odd.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The `render` method renders the game board, status, and move buttons. It first calculates the winner based on the current squares. Then, it maps over the history array to create a list of move buttons. Each button has an `onClick` event handler that calls the `jumpTo` method with the corresponding move number. The status is set to display the winner if there is one, or the next player's turn if there is no winner. Finally, it renders the `Board` component with the current squares and the `handleClick` method as props.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Overall, the `Game` component handles the game logic and renders the game board, status, and move buttons. It uses the `Board` component to render the individual squares.
